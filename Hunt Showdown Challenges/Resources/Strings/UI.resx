@@ -150,6 +150,9 @@
   <data name="Developers" xml:space="preserve">
     <value>Developers</value>
   </data>
+  <data name="Discord" xml:space="preserve">
+    <value>Discord</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="IncludeDescription" xml:space="preserve">
     <value>Include the Description in the Challenge File</value>
+  </data>
+  <data name="JoinTheDiscord" xml:space="preserve">
+    <value>Join the Discord</value>
   </data>
   <data name="NewChallenge" xml:space="preserve">
     <value>New Challenge</value>

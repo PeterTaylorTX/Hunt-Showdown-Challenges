@@ -160,6 +160,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discord.
+        /// </summary>
+        public static string Discord {
+            get {
+                return ResourceManager.GetString("Discord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -219,6 +228,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         public static string IncludeDescription {
             get {
                 return ResourceManager.GetString("IncludeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join the Discord.
+        /// </summary>
+        public static string JoinTheDiscord {
+            get {
+                return ResourceManager.GetString("JoinTheDiscord", resourceCulture);
             }
         }
         

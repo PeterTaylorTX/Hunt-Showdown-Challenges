@@ -20,14 +20,19 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+
+
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
             <Image Source="/Resources/Images/Bounty_Icon_Smudge.png" Width="100" />
             <Label>
                 <TextBlock TextWrapping="WrapWithOverflow" Text="{x:Static strings:UI.AboutPageSummary}"/>
             </Label>
         </StackPanel>
+
+
         <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" Margin="0,20">
             <Label Content="{x:Static strings:UI.Developers}" Style="{StaticResource ItemHeader}"/>
+            <!-- PETER -->
             <StackPanel Orientation="Horizontal">
                 <Label Content="PeterTaylorTX | "/>
                 <Label>
@@ -42,7 +47,10 @@
                     </Hyperlink>
                 </Label>
             </StackPanel>
+            <!-- PETER -->
         </StackPanel>
+
+
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="0,20">
             <Label Content="{x:Static strings:UI.Testers}" Style="{StaticResource ItemHeader}"/>
         </StackPanel>
@@ -51,6 +59,8 @@
             <Label Content="PeterTaylorTX"/>
             <Label Content="DJ Crumble"/>
         </StackPanel>
+
+
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" Margin="0,20">
             <Label Content="{x:Static strings:UI.FeaturesBugs}" Style="{StaticResource ItemHeader}"/>
 
@@ -60,6 +70,12 @@
             <Label>
                 <Hyperlink NavigateUri="https://github.com/PeterTaylorTX/Hunt-Showdown-Challenges" RequestNavigate="Hyperlink_RequestNavigate" >
                     GitHub
+                </Hyperlink>
+            </Label>
+            <Label Content="{x:Static strings:UI.Discord}" Style="{StaticResource ItemHeader}" Margin="0,20,0,0"/>
+            <Label>
+                <Hyperlink NavigateUri="https://discord.taylorsnet.co.uk" RequestNavigate="Hyperlink_RequestNavigate">
+                    <TextBlock TextWrapping="WrapWithOverflow" Text="{x:Static strings:UI.JoinTheDiscord}"/>
                 </Hyperlink>
             </Label>
         </StackPanel>
