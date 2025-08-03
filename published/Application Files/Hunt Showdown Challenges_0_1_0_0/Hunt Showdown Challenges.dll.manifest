@@ -594,13 +594,13 @@
       <dsig:DigestValue>Wx9IEvmHVbpOgMBQpBqVmqKcVQC6MB8utOCcUU1apdI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Hunt Showdown Challenges.dll" size="70144">
+  <file name="Hunt Showdown Challenges.dll" size="69632">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FrUeblFCkuCHTtCcaGKI7CyDJUdOLcDNV7Z1rMe0vaY=</dsig:DigestValue>
+      <dsig:DigestValue>ZK9nlZREeDD91kTRSQ7PH+jkNKNKw/xbEF0g+8hyRqk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Hunt Showdown Challenges.dll.config" size="1321">
@@ -612,13 +612,13 @@
       <dsig:DigestValue>SgdmDyTVWRZ+hXwZxo5i6yvyJQjuX0sgSnB/PI8qhtM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Hunt Showdown Challenges.exe" size="171008">
+  <file name="Hunt Showdown Challenges.exe" size="170496">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ptAfnbW1m1dPOGnLWUl7MBg418NmAAn7sKC+c6uovPI=</dsig:DigestValue>
+      <dsig:DigestValue>Koh+eI3dQwUqTXmFg7QkslIlKsG/uNVAqYewzx+qK3w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Hunt Showdown Challenges.runtimeconfig.json" size="583">
