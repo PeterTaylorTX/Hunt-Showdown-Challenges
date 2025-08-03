@@ -1,0 +1,72 @@
+﻿<Window x:Class="Hunt_Showdown_Challenges.Views.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hunt_Showdown_Challenges.Views"
+        xmlns:vm="clr-namespace:Hunt_Showdown_Challenges.ViewModels"
+        xmlns:data="clr-namespace:Hunt_Showdown_Challenges.Data.Logic"
+        xmlns:strings="clr-namespace:Hunt_Showdown_Challenges.Resources.Strings"
+        Style="{StaticResource {x:Type Window}}"
+        mc:Ignorable="d"
+        Title="About" Height="500" Width="800">
+    <Grid Margin="20" MaxWidth="700">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
+            <Image Source="/Resources/Images/Bounty_Icon_Smudge.png" Width="100" />
+            <Label>
+                <TextBlock TextWrapping="WrapWithOverflow">
+                    This app was written to allow some more challenges in the game Hunt Showdown
+                </TextBlock>
+            </Label>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" Margin="0,20">
+            <Label Content="Developer" Style="{StaticResource ItemHeader}"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="PeterTaylorTX | "/>
+                <Label>
+                    <Hyperlink NavigateUri="http://twitch.tv/PeterTaylorTX" RequestNavigate="Hyperlink_RequestNavigate">
+                        Twitch
+                    </Hyperlink>
+                </Label>
+                <Label Content=" | "/>
+                <Label>
+                    <Hyperlink NavigateUri="http://petertaylortx.bsky.social" RequestNavigate="Hyperlink_RequestNavigate">
+                        BlueSky
+                    </Hyperlink>
+                </Label>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="0,20">
+            <Label Content="Testers" Style="{StaticResource ItemHeader}"/>
+            <Label Content="DJ Crumble"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Vertical" Margin="0,20">
+            <Label Content="Challenges Submitted By" Style="{StaticResource ItemHeader}"/>
+            <Label Content="PeterTaylorTX"/>
+            <Label Content="DJ Crumble"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" Margin="0,20">
+            <Label Content="Features/Bugs" Style="{StaticResource ItemHeader}"/>
+
+            <Label>
+                <TextBlock TextWrapping="WrapWithOverflow">
+                        Have an idea for a new challenge or feature, submit it via the "Issues" section on the
+                </TextBlock>
+            </Label>
+            <Label>
+                <Hyperlink NavigateUri="https://github.com/PeterTaylorTX/Hunt-Showdown-Challenges" RequestNavigate="Hyperlink_RequestNavigate" >
+                    GitHub
+                </Hyperlink>
+            </Label>
+        </StackPanel>
+    </Grid>
+</Window>

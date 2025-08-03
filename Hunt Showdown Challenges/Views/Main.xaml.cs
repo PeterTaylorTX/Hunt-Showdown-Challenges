@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Hunt_Showdown_Challenges.Views;
+using System.ComponentModel;
 using System.Configuration;
 using System.Text;
 using System.Windows;
@@ -144,6 +145,15 @@ namespace Hunt_Showdown_Challenges
             Properties.Settings.Default.Save();
             btnReset_Clicked(this, new());
             base.OnClosing(e);
+        }
+
+        /// <summary>
+        /// Open the About Page
+        /// </summary>
+        private void btnAbout_Clicked(object sender, RoutedEventArgs e)
+        {
+            var about = new About();
+            about.ShowDialog();
         }
     }
 }

@@ -3,68 +3,73 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hunt_Showdown_Challenges" 
         xmlns:vm="clr-namespace:Hunt_Showdown_Challenges.ViewModels"
-        xmlns:local="clr-namespace:Hunt_Showdown_Challenges" d:DataContext="{d:DesignInstance Type=vm:Main}"
         xmlns:data="clr-namespace:Hunt_Showdown_Challenges.Data.Logic"
         xmlns:strings="clr-namespace:Hunt_Showdown_Challenges.Resources.Strings"
+        Style="{StaticResource {x:Type Window}}"
         mc:Ignorable="d"
-        Title="{Binding AppTitle}" Height="800" Width="1200" Background="#1A1A1A"
+        d:DataContext="{d:DesignInstance Type=vm:Main}"
+        Title="{Binding AppTitle}" Height="800" Width="1200"
         DataContext="vm:Main" Loaded="Window_Loaded">
     <ScrollViewer>
-        <StackPanel Orientation="Vertical" Margin="30,0">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical">
-                    <Label Content="{x:Static strings:UI.Controls}" Margin="0,10" Style="{StaticResource Header}"/>
-                    <Button Content="{x:Static strings:UI.NewChallenge}"  Width="200" Margin="0,5" Click="btnNewChallenge_Clicked"/>
-                    <Button Content="{x:Static strings:UI.Reset}"         Width="200" Margin="0,5" Click="btnReset_Clicked"/>
-                    <Button Content="{x:Static strings:UI.ChallengeFile}" Width="200" Margin="0,5" Click="btnChallengeFile_Clicked"/>
+        <Grid>
+            <StackPanel Orientation="Vertical" Margin="30,0">
+                <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Vertical">
-                        <Label Content="{x:Static strings:UI.Players}" Margin="0,10" Style="{StaticResource Header}"/>
-                        <Label Content="{x:Static strings:UI.Player1}"/>
-                        <TextBox Text="{Binding Player1}" Width="200"/>
-                        <Label Content="{x:Static strings:UI.Player2}"/>
-                        <TextBox Text="{Binding Player2}" Width="200"/>
-                        <Label Content="{x:Static strings:UI.Player3}"/>
-                        <TextBox Text="{Binding Player3}" Width="200"/>
+                        <Label Content="{x:Static strings:UI.Controls}" Margin="0,10" Style="{StaticResource Header}"/>
+                        <Button Content="{x:Static strings:UI.NewChallenge}"  Width="200" Margin="0,5" Click="btnNewChallenge_Clicked"/>
+                        <Button Content="{x:Static strings:UI.Reset}"         Width="200" Margin="0,5" Click="btnReset_Clicked"/>
+                        <Button Content="{x:Static strings:UI.ChallengeFile}" Width="200" Margin="0,5" Click="btnChallengeFile_Clicked"/>
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="{x:Static strings:UI.Players}" Margin="0,10" Style="{StaticResource Header}"/>
+                            <Label Content="{x:Static strings:UI.Player1}"/>
+                            <TextBox Text="{Binding Player1}" Width="200"/>
+                            <Label Content="{x:Static strings:UI.Player2}"/>
+                            <TextBox Text="{Binding Player2}" Width="200"/>
+                            <Label Content="{x:Static strings:UI.Player3}"/>
+                            <TextBox Text="{Binding Player3}" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="{x:Static strings:UI.DescriptionInFile}"/>
+                            <CheckBox IsChecked="{Binding WriteDescriptionToFile}"/>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
-                        <Label Content="{x:Static strings:UI.DescriptionInFile}"/>
-                        <CheckBox IsChecked="{Binding WriteDescriptionToFile}"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel Orientation="Vertical">
-                    <Label Content="{x:Static strings:UI.ActiveChallenges}" Margin="10,10" Style="{StaticResource Header}"/>
-                    <ListView ItemsSource="{Binding SelectedChallenges}" Background="Transparent">
-                        <ListView.ItemTemplate>
-                            <DataTemplate DataType="data:Challenge">
-                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                                    <Button Margin="0,0,10,0" Content="[X]" CommandParameter="{Binding Title}" Click="btnRemoveChallenge_Clicked" Width="40" Height="40" VerticalAlignment="Top" Background="Green"/>
-                                    <StackPanel Orientation="Vertical" MaxWidth="900">
-                                        <Label Style="{StaticResource ItemHeader}" MaxWidth="800">
-                                            <TextBlock Text="{Binding Title}" TextWrapping="WrapWithOverflow"/>
-                                        </Label>
-                                        <Label Padding="20,0,0,0" MaxWidth="800">
-                                            <Label.Style>
-                                                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Description}" Value="">
-                                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Label.Style>
-                                            <Label.Content>
-                                                <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow"/>
-                                            </Label.Content>
-                                        </Label>
+                        <Label Content="{x:Static strings:UI.ActiveChallenges}" Margin="10,10" Style="{StaticResource Header}"/>
+                        <ListView ItemsSource="{Binding SelectedChallenges}" Background="Transparent">
+                            <ListView.ItemTemplate>
+                                <DataTemplate DataType="data:Challenge">
+                                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                        <Button Margin="0,0,10,0" Content="[X]" CommandParameter="{Binding Title}" Click="btnRemoveChallenge_Clicked" Width="40" Height="40" VerticalAlignment="Top" Background="Green"/>
+                                        <StackPanel Orientation="Vertical" MaxWidth="900">
+                                            <Label Style="{StaticResource ItemHeader}" MaxWidth="800">
+                                                <TextBlock Text="{Binding Title}" TextWrapping="WrapWithOverflow"/>
+                                            </Label>
+                                            <Label Padding="20,0,0,0" MaxWidth="800">
+                                                <Label.Style>
+                                                    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Description}" Value="">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Label.Style>
+                                                <Label.Content>
+                                                    <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow"/>
+                                                </Label.Content>
+                                            </Label>
+                                        </StackPanel>
                                     </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
-        </StackPanel>
+            <Button Content="{x:Static strings:UI.About}" Click="btnAbout_Clicked" VerticalAlignment="Bottom" Margin="10" />
+        </Grid>
     </ScrollViewer>
 </Window>

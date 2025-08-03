@@ -13,4 +13,8 @@
         <Setter Property="FontSize" Value="25"/>
     </Style>
 
+    <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}">
+        <Setter Property="Background" Value="#1A1A1A"/>
+    </Style>
+
 </ResourceDictionary>
