@@ -70,6 +70,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This app was written to allow some more challenges in the game Hunt Showdown.
+        /// </summary>
+        public static string AboutPageSummary {
+            get {
+                return ResourceManager.GetString("AboutPageSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string Active {
@@ -106,6 +115,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Challenges Submitted By.
+        /// </summary>
+        public static string ChallengesSubmitted {
+            get {
+                return ResourceManager.GetString("ChallengesSubmitted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Controls.
         /// </summary>
         public static string Controls {
@@ -133,6 +151,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Developers.
+        /// </summary>
+        public static string Developers {
+            get {
+                return ResourceManager.GetString("Developers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -156,6 +183,24 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         public static string ErrorMessage {
             get {
                 return ResourceManager.GetString("ErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features/Bugs.
+        /// </summary>
+        public static string FeaturesBugs {
+            get {
+                return ResourceManager.GetString("FeaturesBugs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have an idea for a new challenge or feature, submit it via the &quot;Issues&quot; section on the.
+        /// </summary>
+        public static string FeaturesBugsDescription {
+            get {
+                return ResourceManager.GetString("FeaturesBugsDescription", resourceCulture);
             }
         }
         
@@ -237,6 +282,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         public static string Reset {
             get {
                 return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Testers.
+        /// </summary>
+        public static string Testers {
+            get {
+                return ResourceManager.GetString("Testers", resourceCulture);
             }
         }
         

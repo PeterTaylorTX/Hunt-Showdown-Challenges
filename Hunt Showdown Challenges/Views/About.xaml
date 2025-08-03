@@ -23,13 +23,11 @@
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Vertical">
             <Image Source="/Resources/Images/Bounty_Icon_Smudge.png" Width="100" />
             <Label>
-                <TextBlock TextWrapping="WrapWithOverflow">
-                    This app was written to allow some more challenges in the game Hunt Showdown
-                </TextBlock>
+                <TextBlock TextWrapping="WrapWithOverflow" Text="{x:Static strings:UI.AboutPageSummary}"/>
             </Label>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" Margin="0,20">
-            <Label Content="Developer" Style="{StaticResource ItemHeader}"/>
+            <Label Content="{x:Static strings:UI.Developers}" Style="{StaticResource ItemHeader}"/>
             <StackPanel Orientation="Horizontal">
                 <Label Content="PeterTaylorTX | "/>
                 <Label>
@@ -46,21 +44,18 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="0,20">
-            <Label Content="Testers" Style="{StaticResource ItemHeader}"/>
-            <Label Content="DJ Crumble"/>
+            <Label Content="{x:Static strings:UI.Testers}" Style="{StaticResource ItemHeader}"/>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Vertical" Margin="0,20">
-            <Label Content="Challenges Submitted By" Style="{StaticResource ItemHeader}"/>
+            <Label Content="{x:Static strings:UI.ChallengesSubmitted}" Style="{StaticResource ItemHeader}"/>
             <Label Content="PeterTaylorTX"/>
             <Label Content="DJ Crumble"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" Margin="0,20">
-            <Label Content="Features/Bugs" Style="{StaticResource ItemHeader}"/>
+            <Label Content="{x:Static strings:UI.FeaturesBugs}" Style="{StaticResource ItemHeader}"/>
 
             <Label>
-                <TextBlock TextWrapping="WrapWithOverflow">
-                        Have an idea for a new challenge or feature, submit it via the "Issues" section on the
-                </TextBlock>
+                <TextBlock TextWrapping="WrapWithOverflow" Text="{x:Static strings:UI.FeaturesBugsDescription}"/>
             </Label>
             <Label>
                 <Hyperlink NavigateUri="https://github.com/PeterTaylorTX/Hunt-Showdown-Challenges" RequestNavigate="Hyperlink_RequestNavigate" >
