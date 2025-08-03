@@ -600,7 +600,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZK9nlZREeDD91kTRSQ7PH+jkNKNKw/xbEF0g+8hyRqk=</dsig:DigestValue>
+      <dsig:DigestValue>uUrekBW6EkHg/Fyk/eR7qWcA5OJwDzYiaqfqxO1XOHI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Hunt Showdown Challenges.dll.config" size="1321">
@@ -618,7 +618,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Koh+eI3dQwUqTXmFg7QkslIlKsG/uNVAqYewzx+qK3w=</dsig:DigestValue>
+      <dsig:DigestValue>hFzt6vdm4v7oy3fk3ac9rwhX4DsDpNJLR850hFJzNjE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Hunt Showdown Challenges.runtimeconfig.json" size="583">
