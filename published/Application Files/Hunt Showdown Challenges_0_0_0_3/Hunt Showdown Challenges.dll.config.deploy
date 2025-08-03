@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="Hunt_Showdown_Challenges.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <userSettings>
+        <Hunt_Showdown_Challenges.Properties.Settings>
+            <setting name="WriteDescription" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="Player1" serializeAs="String">
+                <value>You</value>
+            </setting>
+            <setting name="Player2" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="Player3" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="LastAppVersion" serializeAs="String">
+                <value />
+            </setting>
+        </Hunt_Showdown_Challenges.Properties.Settings>
+    </userSettings>
+</configuration>
