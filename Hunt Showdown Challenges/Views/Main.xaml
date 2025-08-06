@@ -69,7 +69,10 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <Button Content="{x:Static strings:UI.About}" Click="btnAbout_Clicked" VerticalAlignment="Bottom" Margin="10" />
+            <StackPanel Orientation="Horizontal" Margin="10" VerticalAlignment="Bottom">
+                <Button Content="{x:Static strings:UI.About}" Click="btnAbout_Clicked" />
+                <Button Content="{x:Static strings:UI.Twitch_Integration}" Click="btnTwitch_Clicked" />
+            </StackPanel>
         </Grid>
     </ScrollViewer>
 </Window>

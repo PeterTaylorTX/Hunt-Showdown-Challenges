@@ -1,0 +1,36 @@
+﻿<Window x:Class="Hunt_Showdown_Challenges.Views.Twitch_Integration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hunt_Showdown_Challenges.Views"
+        xmlns:vm="clr-namespace:Hunt_Showdown_Challenges.ViewModels"
+        xmlns:data="clr-namespace:Hunt_Showdown_Challenges.Data.Logic"
+        xmlns:strings="clr-namespace:Hunt_Showdown_Challenges.Resources.Strings"
+        Style="{StaticResource {x:Type Window}}"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=vm:Twitch_Integration}"
+        Title="{x:Static strings:UI.Twitch_Integration}" Height="450" Width="800"
+        DataContext="vm:Twitch_Integration" Loaded="Window_Loaded" >
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{x:Static strings:UI.Twitch_Channel}" VerticalAlignment="Bottom" Margin="0,0,10,0"/>
+                <TextBox Text="{Binding TwitchConfig.Channel.Login}" Width="300" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button Content="{x:Static strings:UI.Authorise}" Click="btnGetNewOAuthToken_Clicked"  Width="80"/>
+            </StackPanel>
+
+            <Label Content="{x:Static strings:UI.Twitch_Redeem}" Style="{StaticResource ItemHeader}"/>
+            <ListView ItemsSource="{Binding Channel_Points}" SelectionChanged="TwitchRedeem_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding title}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

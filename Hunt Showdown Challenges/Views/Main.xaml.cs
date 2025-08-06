@@ -44,12 +44,32 @@ namespace Hunt_Showdown_Challenges
                 viewModel.Player2 = Properties.Settings.Default.Player2;
                 viewModel.Player3 = Properties.Settings.Default.Player3;
 
+                // TWITCH
+                Twitch.Config? tmpConfig = await Twitch.Config.Load(); //Load config
+                if (tmpConfig == null) { viewModel.TwitchConfig = new(); } // New config
+                else { viewModel.TwitchConfig = tmpConfig; } // Use loaded config
+                if (string.IsNullOrWhiteSpace(viewModel.TwitchConfig.ClientID)) { viewModel.TwitchConfig.ClientID = ""; } //Set Default Client ID
+                await this.ConnectToTwitch();
+                // TWITCH
+
 
                 this.DataContext = viewModel;
             }
-            catch (System.IO.FileNotFoundException ex) { MessageBox.Show(Hunt_Showdown_Challenges.Resources.Strings.UI.Error, $"{Hunt_Showdown_Challenges.Resources.Strings.UI.Error_FileNotFound} {ex.Message}", MessageBoxButton.OK); }
-            catch (Exception ex) { MessageBox.Show(Hunt_Showdown_Challenges.Resources.Strings.UI.Error, $"{Hunt_Showdown_Challenges.Resources.Strings.UI.ErrorMessage} {ex.Message}", MessageBoxButton.OK); }
+            catch (System.IO.FileNotFoundException ex) { MessageBox.Show($"{Hunt_Showdown_Challenges.Resources.Strings.UI.Error_FileNotFound} {ex.Message}", Hunt_Showdown_Challenges.Resources.Strings.UI.Error, MessageBoxButton.OK); }
+            catch (Exception ex) { MessageBox.Show($"{Hunt_Showdown_Challenges.Resources.Strings.UI.ErrorMessage} {ex.Message}", Hunt_Showdown_Challenges.Resources.Strings.UI.Error, MessageBoxButton.OK); }
         }
+
+        /// <summary>
+        /// Connect to the Twitch servers
+        /// </summary>
+        private async Task ConnectToTwitch(Int32 tries = 0)
+        {
+            if (tries >= 3) { return; }
+            if (viewModel.TwitchConfig.OAuthToken == null) { return; }
+            Twitch.APIs.EventSub.TwitchEventSubClient eventSub = new(viewModel.TwitchConfig.ClientID, Encoding.Unicode.GetString(viewModel.TwitchConfig.OAuthToken), viewModel.TwitchConfig.Channel.ID);
+            viewModel.isLoggedIn = await eventSub.ConnectAsync(ChannelPointRedeemed);
+        }
+
 
         /// <summary>
         /// Add a new Challenge to the list
@@ -154,6 +174,23 @@ namespace Hunt_Showdown_Challenges
         {
             var about = new About();
             about.ShowDialog();
+        }
+
+        /// <summary>
+        /// Load the Twitch Config UI
+        /// </summary>
+        private void btnTwitch_Clicked(object sender, RoutedEventArgs e)
+        {
+            var twitchUI = new Twitch_Integration(viewModel.TwitchConfig);
+            viewModel.TwitchConfig = twitchUI.ShowDialog();
+        }
+        /// <summary>
+        /// The Twitch Channel Points has been redeemed
+        /// </summary>
+        /// <param name="message">The message from Twitch</param>
+        private void ChannelPointRedeemed(string message)
+        {
+            if (message == ViewModels.Main.TwitchRedeemItem) { btnNewChallenge_Clicked(message, new()); }
         }
     }
 }

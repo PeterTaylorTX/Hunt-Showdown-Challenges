@@ -97,6 +97,33 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authentication.
+        /// </summary>
+        public static string Authentication {
+            get {
+                return ResourceManager.GetString("Authentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication Failed.
+        /// </summary>
+        public static string Authentication_Failed {
+            get {
+                return ResourceManager.GetString("Authentication_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authorise.
+        /// </summary>
+        public static string Authorise {
+            get {
+                return ResourceManager.GetString("Authorise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Challenge File.
         /// </summary>
         public static string ChallengeFile {
@@ -196,6 +223,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An Error Occurred.
+        /// </summary>
+        public static string ErrorTitle {
+            get {
+                return ResourceManager.GetString("ErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Features/Bugs.
         /// </summary>
         public static string FeaturesBugs {
@@ -246,6 +282,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         public static string NewChallenge {
             get {
                 return ResourceManager.GetString("NewChallenge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
             }
         }
         
@@ -318,6 +363,33 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twitch Channel.
+        /// </summary>
+        public static string Twitch_Channel {
+            get {
+                return ResourceManager.GetString("Twitch_Channel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twitch Integration.
+        /// </summary>
+        public static string Twitch_Integration {
+            get {
+                return ResourceManager.GetString("Twitch_Integration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trigger on Selected Redeem.
+        /// </summary>
+        public static string Twitch_Redeem {
+            get {
+                return ResourceManager.GetString("Twitch_Redeem", resourceCulture);
             }
         }
         

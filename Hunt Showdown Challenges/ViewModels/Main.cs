@@ -44,5 +44,17 @@ namespace Hunt_Showdown_Challenges.ViewModels
         /// The application title
         /// </summary>
         public string AppTitle { get; set; } = $"Hunt Showdown Challenges ({System.Reflection.Assembly.GetExecutingAssembly().GetName().Version})";
+        /// <summary>
+        /// The Twitch Client
+        /// </summary>
+        public Twitch.Config TwitchConfig { get; set; } = new();
+        /// <summary>
+        /// The is user logged into Twitch
+        /// </summary>
+        public bool isLoggedIn { get; set; } = false;
+        /// <summary>
+        /// The name of the Twitch Redeem to monitor
+        /// </summary>
+        public static string TwitchRedeemItem { get; set; } = string.Empty;
     }
 }

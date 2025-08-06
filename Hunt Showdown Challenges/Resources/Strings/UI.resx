@@ -129,6 +129,15 @@
   <data name="ActiveChallenges" xml:space="preserve">
     <value>Active Challenges</value>
   </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Authentication</value>
+  </data>
+  <data name="Authentication_Failed" xml:space="preserve">
+    <value>Authentication Failed</value>
+  </data>
+  <data name="Authorise" xml:space="preserve">
+    <value>Authorise</value>
+  </data>
   <data name="ChallengeFile" xml:space="preserve">
     <value>Challenge File</value>
   </data>
@@ -159,6 +168,9 @@
   <data name="ErrorMessage" xml:space="preserve">
     <value>An error has occurred: </value>
   </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>An Error Occurred</value>
+  </data>
   <data name="Error_FileNotFound" xml:space="preserve">
     <value>The data file is not found or is empty, please re-download the app</value>
   </data>
@@ -179,6 +191,9 @@
   </data>
   <data name="NewChallenge" xml:space="preserve">
     <value>New Challenge</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -203,6 +218,15 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Title</value>
+  </data>
+  <data name="Twitch_Channel" xml:space="preserve">
+    <value>Twitch Channel</value>
+  </data>
+  <data name="Twitch_Integration" xml:space="preserve">
+    <value>Twitch Integration</value>
+  </data>
+  <data name="Twitch_Redeem" xml:space="preserve">
+    <value>Trigger on Selected Redeem</value>
   </data>
   <data name="You" xml:space="preserve">
     <value>You</value>

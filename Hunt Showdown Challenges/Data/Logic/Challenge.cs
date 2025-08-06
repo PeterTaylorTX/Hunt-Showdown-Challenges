@@ -9,7 +9,7 @@ namespace Hunt_Showdown_Challenges.Data.Logic
     public class Challenge : Models.Challenge
     {
         static string dataFile = "Data/HuntChallenges.json";
-        static string dataStorageDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Hunt Showdown Challenges";
+        public static string dataStorageDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Hunt Showdown Challenges";
         static string challengeFile = $"{dataStorageDirectory}\\Active Challenges.txt";
         public static IEnumerable<Challenge>? Challenges { get; set; }
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36327.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hunt Showdown Challenges", "Hunt Showdown Challenges\Hunt Showdown Challenges.csproj", "{15E57912-96D0-4965-B425-4E4201CB5E96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitch", "Twitch\Twitch.csproj", "{7A86A1CB-14FC-4408-E6D7-8AF0AA9962BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{15E57912-96D0-4965-B425-4E4201CB5E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15E57912-96D0-4965-B425-4E4201CB5E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15E57912-96D0-4965-B425-4E4201CB5E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A86A1CB-14FC-4408-E6D7-8AF0AA9962BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A86A1CB-14FC-4408-E6D7-8AF0AA9962BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A86A1CB-14FC-4408-E6D7-8AF0AA9962BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A86A1CB-14FC-4408-E6D7-8AF0AA9962BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
