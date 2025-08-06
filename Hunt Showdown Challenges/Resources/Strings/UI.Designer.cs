@@ -151,6 +151,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connected=.
+        /// </summary>
+        public static string Connected {
+            get {
+                return ResourceManager.GetString("Connected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Controls.
         /// </summary>
         public static string Controls {

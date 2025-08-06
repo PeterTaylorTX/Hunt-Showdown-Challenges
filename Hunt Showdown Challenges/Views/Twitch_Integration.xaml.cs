@@ -71,7 +71,7 @@ namespace Hunt_Showdown_Challenges.Views
 
                 viewModel.TwitchConfig.Channel = userDetails.Data[0];
                 await viewModel.TwitchConfig.SaveAsync();
-                this.Close();
+                await this.LoadChannelPoints();
             }
             catch (Exception ex) { MessageBox.Show($"{ex.Message}\n\n{Namespace}.btnGetNewOAuthToken_Clicked", Hunt_Showdown_Challenges.Resources.Strings.UI.ErrorTitle); }
         }
@@ -105,6 +105,7 @@ namespace Hunt_Showdown_Challenges.Views
                 await ViewModels.Main.eventSubClient.DisconnectAsync();
             }
             viewModel.TwitchConfig = new();
+            await viewModel.TwitchConfig.SaveAsync();
             this.Close();
         }
     }

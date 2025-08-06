@@ -51,7 +51,8 @@ namespace Hunt_Showdown_Challenges.ViewModels
         /// <summary>
         /// The is user logged into Twitch
         /// </summary>
-        public bool isLoggedIn { get; set; } = false;
+        [ObservableProperty]
+        private bool isLoggedIn = false;
         /// <summary>
         /// The name of the Twitch Redeem to monitor
         /// </summary>

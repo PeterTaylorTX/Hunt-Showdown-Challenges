@@ -71,7 +71,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" VerticalAlignment="Bottom">
                 <Button Content="{x:Static strings:UI.About}" Click="btnAbout_Clicked" />
-                <Button Content="{x:Static strings:UI.Twitch_Integration}" Click="btnTwitch_Clicked" />
+                <Button Content="{x:Static strings:UI.Twitch_Integration}" Click="btnTwitch_Clicked" Margin="10,0" />
+                <Label Content="{x:Static strings:UI.Connected}"/>
+                <Label Content="{Binding IsLoggedIn}"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>

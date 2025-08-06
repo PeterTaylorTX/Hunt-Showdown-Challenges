@@ -1,6 +1,7 @@
 ﻿using Hunt_Showdown_Challenges.Views;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -60,7 +61,7 @@ namespace Hunt_Showdown_Challenges
             if (tries >= 3) { return; }
             if (viewModel.TwitchConfig.OAuthToken == null) { return; }
             ViewModels.Main.eventSubClient = new(viewModel.TwitchConfig.ClientID, Encoding.Unicode.GetString(viewModel.TwitchConfig.OAuthToken), viewModel.TwitchConfig.Channel.ID);
-            viewModel.isLoggedIn = await ViewModels.Main.eventSubClient.ConnectAsync(ChannelPointRedeemed);
+            viewModel.IsLoggedIn = await ViewModels.Main.eventSubClient.ConnectAsync(ChannelPointRedeemed);
         }
 
 
@@ -173,11 +174,20 @@ namespace Hunt_Showdown_Challenges
         /// <summary>
         /// Load the Twitch Config UI
         /// </summary>
-        private void btnTwitch_Clicked(object sender, RoutedEventArgs e)
+        private async void btnTwitch_Clicked(object sender, RoutedEventArgs e)
         {
             var twitchUI = new Twitch_Integration(viewModel.TwitchConfig);
             viewModel.TwitchConfig = twitchUI.ShowDialog();
+            if (viewModel.TwitchConfig.OAuthToken == null)
+            {
+                viewModel.IsLoggedIn = false;
+            }
+            else
+            {
+                await this.ConnectToTwitch();
+            }
         }
+
         /// <summary>
         /// The Twitch Channel Points has been redeemed
         /// </summary>
