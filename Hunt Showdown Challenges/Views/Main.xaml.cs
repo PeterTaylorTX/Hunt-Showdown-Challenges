@@ -1,16 +1,8 @@
 ﻿using Hunt_Showdown_Challenges.Views;
 using System.ComponentModel;
-using System.Configuration;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Hunt_Showdown_Challenges
 {
@@ -43,6 +35,7 @@ namespace Hunt_Showdown_Challenges
                 viewModel.Player1 = Properties.Settings.Default.Player1;
                 viewModel.Player2 = Properties.Settings.Default.Player2;
                 viewModel.Player3 = Properties.Settings.Default.Player3;
+                ViewModels.Main.TwitchRedeemItem = Properties.Settings.Default.ChannelPointsRedeem;
 
                 // TWITCH
                 Twitch.Config? tmpConfig = await Twitch.Config.Load(); //Load config
@@ -66,8 +59,8 @@ namespace Hunt_Showdown_Challenges
         {
             if (tries >= 3) { return; }
             if (viewModel.TwitchConfig.OAuthToken == null) { return; }
-            Twitch.APIs.EventSub.TwitchEventSubClient eventSub = new(viewModel.TwitchConfig.ClientID, Encoding.Unicode.GetString(viewModel.TwitchConfig.OAuthToken), viewModel.TwitchConfig.Channel.ID);
-            viewModel.isLoggedIn = await eventSub.ConnectAsync(ChannelPointRedeemed);
+            ViewModels.Main.eventSubClient = new(viewModel.TwitchConfig.ClientID, Encoding.Unicode.GetString(viewModel.TwitchConfig.OAuthToken), viewModel.TwitchConfig.Channel.ID);
+            viewModel.isLoggedIn = await ViewModels.Main.eventSubClient.ConnectAsync(ChannelPointRedeemed);
         }
 
 
@@ -162,6 +155,7 @@ namespace Hunt_Showdown_Challenges
             Properties.Settings.Default.Player1 = viewModel.Player1;
             Properties.Settings.Default.Player2 = viewModel.Player2;
             Properties.Settings.Default.Player3 = viewModel.Player3;
+            Properties.Settings.Default.ChannelPointsRedeem = ViewModels.Main.TwitchRedeemItem;
             Properties.Settings.Default.Save();
             btnReset_Clicked(this, new());
             base.OnClosing(e);

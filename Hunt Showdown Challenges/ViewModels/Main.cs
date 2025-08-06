@@ -56,5 +56,10 @@ namespace Hunt_Showdown_Challenges.ViewModels
         /// The name of the Twitch Redeem to monitor
         /// </summary>
         public static string TwitchRedeemItem { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The Twitch Event Client
+        /// </summary>
+        public static Twitch.APIs.EventSub.TwitchEventSubClient? eventSubClient { get; set; }
     }
 }

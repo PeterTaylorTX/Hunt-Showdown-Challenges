@@ -94,6 +94,19 @@ namespace Hunt_Showdown_Challenges.Views
             if (addedItem == null) { return; }
             Main.TwitchRedeemItem = addedItem.title;
         }
+
+        /// <summary>
+        /// Disconnect the Twitch service
+        /// </summary>
+        private async void btnDeleteOAuthToken_Clicked(object sender, RoutedEventArgs e)
+        {
+            if(ViewModels.Main.eventSubClient != null)
+            {
+                await ViewModels.Main.eventSubClient.DisconnectAsync();
+            }
+            viewModel.TwitchConfig = new();
+            this.Close();
+        }
     }
 }
 

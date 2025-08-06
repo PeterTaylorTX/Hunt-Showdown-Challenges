@@ -159,6 +159,9 @@
   <data name="Developers" xml:space="preserve">
     <value>Developers</value>
   </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
   <data name="Discord" xml:space="preserve">
     <value>Discord</value>
   </data>

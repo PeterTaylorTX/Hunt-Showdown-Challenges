@@ -82,5 +82,17 @@ namespace Hunt_Showdown_Challenges.Properties {
                 this["LastAppVersion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ChannelPointsRedeem {
+            get {
+                return ((string)(this["ChannelPointsRedeem"]));
+            }
+            set {
+                this["ChannelPointsRedeem"] = value;
+            }
+        }
     }
 }

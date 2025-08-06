@@ -16,6 +16,7 @@ namespace Twitch.APIs.EventSub
         private readonly string _broadcasterUserId = broadcasterUserId;
         private ClientWebSocket _webSocket = new();
         private string lastMessageIDReceived = string.Empty;
+        private readonly List<string> _subscriptionIds = new();
 
         protected Action<string>? Callback;
 
@@ -36,6 +37,7 @@ namespace Twitch.APIs.EventSub
                 .GetProperty("id")
                 .GetString();
             if (string.IsNullOrWhiteSpace(sessionId)) { return false; }
+            _subscriptionIds.Add(sessionId);
             Console.WriteLine("Connected. Session ID: " + sessionId);
 
             var subscribed = await SubscribeToRedemptionsAsync(sessionId);
@@ -119,6 +121,49 @@ namespace Twitch.APIs.EventSub
                     Console.WriteLine("Error parsing message: " + ex.Message);
                 }
             }
+        }
+
+        public async Task DisconnectAsync()
+        {
+            if (_webSocket != null && _webSocket.State == WebSocketState.Open)
+            {
+                Console.WriteLine("Disconnecting...");
+
+                // Unsubscribe from all active subscriptions
+                await UnsubscribeAllAsync();
+
+                // Close WebSocket
+                await _webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client disconnect", CancellationToken.None);
+                _webSocket.Dispose();
+                _webSocket = null;
+
+                Console.WriteLine("Disconnected.");
+            }
+        }
+
+        private async Task UnsubscribeAllAsync()
+        {
+            using var http = new HttpClient();
+            http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
+            http.DefaultRequestHeaders.Add("Client-ID", _clientId);
+
+            foreach (var subId in _subscriptionIds)
+            {
+                var url = $"https://api.twitch.tv/helix/eventsub/subscriptions?id={subId}";
+                var response = await http.DeleteAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Unsubscribed: {subId}");
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Failed to unsubscribe {subId}: {error}");
+                }
+            }
+
+            _subscriptionIds.Clear();
         }
     }
 }
