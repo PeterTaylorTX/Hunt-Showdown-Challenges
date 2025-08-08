@@ -234,6 +234,9 @@
   <data name="Twitch_Redeem" xml:space="preserve">
     <value>Trigger on Selected Redeem</value>
   </data>
+  <data name="Twitch_Redeem_Description" xml:space="preserve">
+    <value>If the selected redeem has a Viewer Prompt, the Random Challenge will be replaced with their prompt</value>
+  </data>
   <data name="ViewerChallenge" xml:space="preserve">
     <value>Viewer Challenge</value>
   </data>

@@ -12,6 +12,9 @@
     <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}" x:Key="ItemHeader">
         <Setter Property="FontSize" Value="25"/>
     </Style>
+    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}" x:Key="SubNote">
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
 
     <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}">
         <Setter Property="Background" Value="#1A1A1A"/>

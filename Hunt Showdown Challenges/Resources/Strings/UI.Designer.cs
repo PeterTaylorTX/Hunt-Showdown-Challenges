@@ -412,6 +412,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If the selected redeem has a Viewer Prompt, the Random Challenge will be replaced with their prompt.
+        /// </summary>
+        public static string Twitch_Redeem_Description {
+            get {
+                return ResourceManager.GetString("Twitch_Redeem_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Viewer Challenge.
         /// </summary>
         public static string ViewerChallenge {
