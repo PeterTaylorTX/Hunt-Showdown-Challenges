@@ -20,6 +20,8 @@ namespace Hunt_Showdown_Challenges.ViewModels
 
         [ObservableProperty]
         protected bool isConnected = false;
+        [ObservableProperty]
+        protected string connectedChannel = string.Empty;
 
     }
 }

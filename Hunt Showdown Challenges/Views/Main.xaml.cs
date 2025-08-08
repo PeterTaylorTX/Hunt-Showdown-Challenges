@@ -42,7 +42,7 @@ namespace Hunt_Showdown_Challenges
                 Twitch.Config? tmpConfig = await Twitch.Config.Load(); //Load config
                 if (tmpConfig == null) { viewModel.TwitchConfig = new(); } // New config
                 else { viewModel.TwitchConfig = tmpConfig; } // Use loaded config
-                if (string.IsNullOrWhiteSpace(viewModel.TwitchConfig.ClientID)) { viewModel.TwitchConfig.ClientID = ""; } //Set Default Client ID
+                if (string.IsNullOrWhiteSpace(viewModel.TwitchConfig.ClientID)) { viewModel.TwitchConfig.ClientID = "dkjupnb2c5ap4r7fykjgrfklvytgrf"; } //Set Default Client ID
                 await this.ConnectToTwitch();
                 // TWITCH
 

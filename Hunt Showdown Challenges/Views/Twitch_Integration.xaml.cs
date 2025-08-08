@@ -49,6 +49,7 @@ namespace Hunt_Showdown_Challenges.Views
         protected async Task LoadChannelPoints()
         {
             if (viewModel.TwitchConfig.OAuthToken == null) { return; }
+            viewModel.ConnectedChannel = viewModel.TwitchConfig.Channel.Display_Name;
             var channelPoints = await Twitch.APIs.Channel_Point_Redemptions.GetListAsync(viewModel.TwitchConfig, viewModel.TwitchConfig.Channel.ID);
             channelPoints.Insert(0, new() { title = Hunt_Showdown_Challenges.Resources.Strings.UI.None });
             viewModel.Channel_Points = new(channelPoints);
@@ -66,10 +67,11 @@ namespace Hunt_Showdown_Challenges.Views
                 viewModel.TwitchConfig.OverrideScope("channel:read:redemptions+channel:bot+user:write:chat+chat:read");
                 viewModel.TwitchConfig.GetOAuthToken();
 
-                var userDetails = await Twitch.APIs.Users.GetUsersAsync(viewModel.TwitchConfig, null, new List<string>() { viewModel.TwitchConfig.Channel.Login });
+                var userDetails = await Twitch.APIs.Users.GetUsersAsync(viewModel.TwitchConfig);
                 if (userDetails == null) { MessageBox.Show(Hunt_Showdown_Challenges.Resources.Strings.UI.Authentication, Hunt_Showdown_Challenges.Resources.Strings.UI.Authentication_Failed, MessageBoxButton.OK); return; }
 
                 viewModel.TwitchConfig.Channel = userDetails.Data[0];
+                viewModel.ConnectedChannel = viewModel.TwitchConfig.Channel.Display_Name;
                 await viewModel.TwitchConfig.SaveAsync();
                 await this.LoadChannelPoints();
             }
@@ -100,11 +102,12 @@ namespace Hunt_Showdown_Challenges.Views
         /// </summary>
         private async void btnDeleteOAuthToken_Clicked(object sender, RoutedEventArgs e)
         {
-            if(ViewModels.Main.eventSubClient != null)
+            if (ViewModels.Main.eventSubClient != null)
             {
                 await ViewModels.Main.eventSubClient.DisconnectAsync();
             }
-            viewModel.TwitchConfig = new();
+            viewModel.TwitchConfig.Channel = new();
+            viewModel.TwitchConfig.OAuthToken = null;
             await viewModel.TwitchConfig.SaveAsync();
             this.Close();
         }

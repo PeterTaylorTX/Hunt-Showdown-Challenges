@@ -17,7 +17,7 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20">
             <StackPanel Orientation="Horizontal">
                 <Label Content="{x:Static strings:UI.Twitch_Channel}" VerticalAlignment="Bottom" Margin="0,0,10,0"/>
-                <TextBox Text="{Binding TwitchConfig.Channel.Login}" Width="300" />
+                <Label Content="{Binding ConnectedChannel}" Width="300" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Button Content="{x:Static strings:UI.Authorise}" Click="btnGetNewOAuthToken_Clicked"  Width="80"/>

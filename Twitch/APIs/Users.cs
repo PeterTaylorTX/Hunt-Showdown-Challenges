@@ -13,23 +13,27 @@ namespace Twitch.APIs
         /// <param name="Usernames">A list of Usernames (Not User IDs)</param>
         public static async Task<Models.Users.Channels> GetUsersAsync(Twitch.Config config, List<String>? UserIDs = null, List<string>? Usernames = null)
         {
-            string URL = $"https://api.twitch.tv/helix/users?";
+            string URL = $"https://api.twitch.tv/helix/users";
+            string query = string.Empty;
 
+            if (UserIDs != null || Usernames != null) { URL += "?"; }
             if (UserIDs != null)
             {
                 foreach (string UserID in UserIDs)
                 {
-                    URL += $"&id={UserID}";
+                    query += $"&id={UserID}";
                 }
             }
             if (Usernames != null)
             {
                 foreach (string Username in Usernames)
                 {
-                    URL += $"&login={Username}";
+                    query += $"&login={Username}";
                 }
             }
-            URL = URL.Replace("?&", "?");
+
+            if(!string.IsNullOrWhiteSpace(query)) { query.Remove(0, 1); }
+            URL = URL + query;
 
             string? result = (string?)await Twitch.Helpers.httpRequests.Get(URL, config);
             if (result == null) { return new(); }
@@ -66,11 +70,11 @@ namespace Twitch.APIs
                     {
                         config.GetOAuthToken();
                         await config.SaveAsync();
-                        return await GetModerationChannelsAsync(config, UserID, 100, 0, false); 
+                        return await GetModerationChannelsAsync(config, UserID, 100, 0, false);
                     }
                 }
             }
-            
+
 
 
             Models.Users.User_Moderation_Channels? channels = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.Users.User_Moderation_Channels>(result);
@@ -104,7 +108,7 @@ namespace Twitch.APIs
             if (result.StartsWith("[ERROR]"))
             {
                 if (result.Contains("already banned")) { return Models.Users.BannedResponse.AlreadyBanned; }
-                else if(result == "too many requests") { return Models.Users.BannedResponse.TooManyRequests; }
+                else if (result == "too many requests") { return Models.Users.BannedResponse.TooManyRequests; }
                 else { return Models.Users.BannedResponse.NotBanned; }
             }
             Models.Users.Ban_User_Response? response = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.Users.Ban_User_Response>(result);

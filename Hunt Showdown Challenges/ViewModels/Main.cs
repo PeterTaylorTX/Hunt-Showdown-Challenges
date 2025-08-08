@@ -47,7 +47,8 @@ namespace Hunt_Showdown_Challenges.ViewModels
         /// <summary>
         /// The Twitch Client
         /// </summary>
-        public Twitch.Config TwitchConfig { get; set; } = new();
+        [ObservableProperty]
+        protected Twitch.Config twitchConfig = new();
         /// <summary>
         /// The is user logged into Twitch
         /// </summary>
