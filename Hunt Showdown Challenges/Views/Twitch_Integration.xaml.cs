@@ -53,7 +53,23 @@ namespace Hunt_Showdown_Challenges.Views
             var channelPoints = await Twitch.APIs.Channel_Point_Redemptions.GetListAsync(viewModel.TwitchConfig, viewModel.TwitchConfig.Channel.ID);
             channelPoints.Insert(0, new() { title = Hunt_Showdown_Challenges.Resources.Strings.UI.None });
             viewModel.Channel_Points = new(channelPoints);
-            viewModel.Selected_Channel_Points_Redeem = viewModel.Channel_Points[0]; //Default the selection to None
+
+            if (string.IsNullOrWhiteSpace(Main.TwitchRedeemItem))
+            {
+                viewModel.Selected_Channel_Points_Redeem = viewModel.Channel_Points[0]; //Default the selection to None
+            }
+            else
+            {
+                var redeemItem = viewModel.Channel_Points.Where(cp => cp.title == Main.TwitchRedeemItem).FirstOrDefault();
+                if (redeemItem == null)
+                {
+                    viewModel.Selected_Channel_Points_Redeem = viewModel.Channel_Points[0]; //Default the selection to None
+                }
+                else
+                {
+                    viewModel.Selected_Channel_Points_Redeem = redeemItem; //Load the selected channel point redeem
+                }
+            }
         }
 
         /// <summary>
