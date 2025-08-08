@@ -192,9 +192,19 @@ namespace Hunt_Showdown_Challenges
         /// The Twitch Channel Points has been redeemed
         /// </summary>
         /// <param name="message">The message from Twitch</param>
-        private void ChannelPointRedeemed(string message)
+        private void ChannelPointRedeemed(string name, string message)
         {
-            if (message == ViewModels.Main.TwitchRedeemItem) { btnNewChallenge_Clicked(message, new()); }
+            if (name == ViewModels.Main.TwitchRedeemItem)
+            {
+                if (string.IsNullOrWhiteSpace(message))
+                {
+                    btnNewChallenge_Clicked(name, new());
+                    return;
+                }
+
+                string viewerChallenge = Hunt_Showdown_Challenges.Resources.Strings.UI.ViewerChallenge;
+                viewModel.SelectedChallenges.Add(new() { OriginalTitle = viewerChallenge, Title = viewerChallenge, OriginalDescription = message, Description = message });
+            }
         }
     }
 }

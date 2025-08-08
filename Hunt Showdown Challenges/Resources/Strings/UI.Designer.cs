@@ -412,6 +412,15 @@ namespace Hunt_Showdown_Challenges.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Viewer Challenge.
+        /// </summary>
+        public static string ViewerChallenge {
+            get {
+                return ResourceManager.GetString("ViewerChallenge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You.
         /// </summary>
         public static string You {

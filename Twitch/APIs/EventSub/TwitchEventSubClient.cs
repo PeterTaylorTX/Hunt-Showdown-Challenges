@@ -15,13 +15,14 @@ namespace Twitch.APIs.EventSub
         private readonly string _accessToken = accessToken;
         private readonly string _broadcasterUserId = broadcasterUserId;
         private ClientWebSocket _webSocket = new();
-        private string lastMessageIDReceived = string.Empty;
+        private static string lastMessageIDReceived = string.Empty;
         private readonly List<string> _subscriptionIds = new();
+        private bool subscribed = false;
+        protected Action<string,string>? Callback;
 
-        protected Action<string>? Callback;
-
-        public async Task<bool> ConnectAsync(Action<string>? callback = null)
+        public async Task<bool> ConnectAsync(Action<string, string>? callback = null)
         {
+            if (subscribed) { return subscribed; } //Dont' subscribe multiple times
             _webSocket = new ClientWebSocket();
             await _webSocket.ConnectAsync(new Uri(WebSocketUrl), CancellationToken.None);
 
@@ -40,11 +41,13 @@ namespace Twitch.APIs.EventSub
             _subscriptionIds.Add(sessionId);
             Console.WriteLine("Connected. Session ID: " + sessionId);
 
-            var subscribed = await SubscribeToRedemptionsAsync(sessionId);
-            if (!subscribed) { return false; }
-            Callback = callback;
-            _ = ReceiveLoop();
-            return true;
+            subscribed = await SubscribeToRedemptionsAsync(sessionId);
+            if (subscribed)
+            {
+                Callback = callback;
+                _ = ReceiveLoop();
+            }
+            return subscribed;
         }
 
         private async Task<bool> SubscribeToRedemptionsAsync(string sessionId)
@@ -104,12 +107,13 @@ namespace Twitch.APIs.EventSub
                         var eventData = doc.RootElement.GetProperty("payload").GetProperty("event");
                         var user = eventData.GetProperty("user_name").GetString();
                         var reward = eventData.GetProperty("reward").GetProperty("title").GetString();
+                        var rewardMessage = eventData.GetProperty("user_input").GetString();
                         string currentMessageID = eventData.GetProperty("id").GetString() ?? string.Empty;
                         if (lastMessageIDReceived == currentMessageID) { continue; }
                         lastMessageIDReceived = currentMessageID;
 
                         Console.WriteLine($"User {user} redeemed reward: {reward}");
-                        if (Callback != null && !string.IsNullOrWhiteSpace(reward)) { Callback(reward); }
+                        if (Callback != null && !string.IsNullOrWhiteSpace(reward)) { Callback(reward, rewardMessage ?? string.Empty); }
                     }
                     else if (type == "session_keepalive")
                     {

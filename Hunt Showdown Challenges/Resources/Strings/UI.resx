@@ -234,6 +234,9 @@
   <data name="Twitch_Redeem" xml:space="preserve">
     <value>Trigger on Selected Redeem</value>
   </data>
+  <data name="ViewerChallenge" xml:space="preserve">
+    <value>Viewer Challenge</value>
+  </data>
   <data name="You" xml:space="preserve">
     <value>You</value>
   </data>
