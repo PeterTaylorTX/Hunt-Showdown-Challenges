@@ -6,12 +6,17 @@
         xmlns:local="clr-namespace:Hunt_Showdown_Challenges" 
         xmlns:vm="clr-namespace:Hunt_Showdown_Challenges.ViewModels"
         xmlns:data="clr-namespace:Hunt_Showdown_Challenges.Data.Logic"
-        xmlns:strings="clr-namespace:Hunt_Showdown_Challenges.Resources.Strings"
+        xmlns:strings="clr-namespace:Hunt_Showdown_Challenges.Resources.Strings" 
+        xmlns:Converters="clr-namespace:Hunt_Showdown_Challenges.Helpers.Converters"
         Style="{StaticResource {x:Type Window}}"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:Main}"
         Title="{Binding AppTitle}" Height="800" Width="1200"
         DataContext="vm:Main" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
+        <Converters:BoolVisibilityInverseConverter x:Key="BoolVisibilityInverseConverter"/>
+    </Window.Resources>
     <ScrollViewer>
         <Grid>
             <StackPanel Orientation="Vertical" Margin="30,0">
@@ -71,9 +76,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" VerticalAlignment="Bottom">
                 <Button Content="{x:Static strings:UI.About}" Click="btnAbout_Clicked" />
-                <Button Content="{x:Static strings:UI.Twitch_Integration}" Click="btnTwitch_Clicked" Margin="10,0" />
-                <Label Content="{x:Static strings:UI.Connected}"/>
-                <Label Content="{Binding IsLoggedIn}"/>
+                <Button Content="{x:Static strings:UI.Twitch_Integration}" Click="btnTwitch_Clicked" Margin="10,0,0,0" />
+                <Canvas Margin="5,7">
+                    <Ellipse Width="20" Height="20" Fill="Green" Visibility="{Binding IsLoggedIn, Converter={StaticResource BoolVisibilityConverter}}"/>
+                    <Ellipse Width="20" Height="20" Fill="DarkRed" Visibility="{Binding IsLoggedIn, Converter={StaticResource BoolVisibilityInverseConverter}}"/>
+                </Canvas>
             </StackPanel>
         </Grid>
     </ScrollViewer>

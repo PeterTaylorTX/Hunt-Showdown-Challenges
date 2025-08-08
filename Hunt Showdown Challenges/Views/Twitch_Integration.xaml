@@ -6,12 +6,17 @@
         xmlns:local="clr-namespace:Hunt_Showdown_Challenges.Views"
         xmlns:vm="clr-namespace:Hunt_Showdown_Challenges.ViewModels"
         xmlns:data="clr-namespace:Hunt_Showdown_Challenges.Data.Logic"
-        xmlns:strings="clr-namespace:Hunt_Showdown_Challenges.Resources.Strings"
+        xmlns:strings="clr-namespace:Hunt_Showdown_Challenges.Resources.Strings" 
+        xmlns:Converters="clr-namespace:Hunt_Showdown_Challenges.Helpers.Converters"
         Style="{StaticResource {x:Type Window}}"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:Twitch_Integration}"
         Title="{x:Static strings:UI.Twitch_Integration}" Height="450" Width="800"
         DataContext="vm:Twitch_Integration" Loaded="Window_Loaded" >
+    <Window.Resources>
+        <Converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
+        <Converters:BoolVisibilityInverseConverter x:Key="BoolVisibilityInverseConverter"/>
+    </Window.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20">
@@ -21,8 +26,8 @@
                 <Label Content="{Binding ConnectedChannel}" Width="300" Margin="10,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                <Button Content="{x:Static strings:UI.Authorise}" Click="btnGetNewOAuthToken_Clicked"  Width="80"/>
-                <Button Content="{x:Static strings:UI.Disconnect}" Click="btnDeleteOAuthToken_Clicked" Width="100" Margin="10,0"/>
+                <Button Content="{x:Static strings:UI.Authorise}" Click="btnGetNewOAuthToken_Clicked"  Width="80" Visibility="{Binding IsConnected, Converter={StaticResource BoolVisibilityInverseConverter}}"/>
+                <Button Content="{x:Static strings:UI.Disconnect}" Click="btnDeleteOAuthToken_Clicked" Width="100" Visibility="{Binding IsConnected, Converter={StaticResource BoolVisibilityConverter}}"/>
             </StackPanel>
 
             <Label Content="{x:Static strings:UI.Twitch_Redeem}" Style="{StaticResource ItemHeader}" Margin="0,20,0,0"/>
