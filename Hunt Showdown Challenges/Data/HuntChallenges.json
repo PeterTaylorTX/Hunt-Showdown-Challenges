@@ -512,10 +512,6 @@
     "Description": ""
   },
   {
-    "Title": "You may save this Hunter and use a new Hunter",
-    "Description": "Optional, One time"
-  },
-  {
     "Title": "Together but Seperate",
     "Description": "You must all travel to different compounds until the boss location is found"
   },
@@ -680,12 +676,12 @@
     "Description": "If multiple people are killed, you must take the last killed hunters weapons"
   },
   {
-    "Title": "You must save this Hunter and use a new Hunter",
-    "Description": "One time"
+    "Title": "You must save this Hunter",
+    "Description": "One time, use a new Hunter"
   },
   {
-    "Title": "You must save this Hunter, play a round with no challenges, and then return to the existing Hunter and challenges after the next round",
-    "Description": "One time"
+    "Title": "You must save this Hunter",
+    "Description": "One time, play a round with no challenges, then return to the existing Hunter and challenges"
   },
   {
     "Title": "You must say everything twice",
@@ -784,107 +780,11 @@
     "Description": ""
   },
   {
-    "Title": "You can only use weapons that start with the letter B",
+    "Title": "You can only use weapons that start with the letter {Letter_Weapons}",
     "Description": ""
   },
   {
-    "Title": "You can only use weapons that start with the letter C",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter D",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter L",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter M",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter N",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter R",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter S",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter V",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter W",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter H",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use weapons that start with the letter K",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter A",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter B",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter C",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter F",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter S",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter D",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter H",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter L",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter M",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter P",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter T",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter W",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter R",
-    "Description": ""
-  },
-  {
-    "Title": "You can only use consumables that start with the letter V",
+    "Title": "You can only use consumables that start with the letter {Letter_Consumables}",
     "Description": ""
   }
 ]

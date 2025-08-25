@@ -14,6 +14,15 @@ namespace Hunt_Showdown_Challenges
     {
         ViewModels.Main viewModel = new();
 
+        /// <summary>
+        /// Letters Weapons could start with
+        /// </summary>
+        List<String> Letters_Weapons = new() { "B", "C", "D", "L", "M", "N", "R", "S", "V", "W", "H", "K" };
+        /// <summary>
+        /// Letters Consumables could start with
+        /// </summary>
+        List<String> Letters_Consumables = new() { "A", "B", "C", "F", "S", "D", "H", "L", "M", "P", "T", "W", "R", "V" };
+
         public MainWindow()
         {
             InitializeComponent();
@@ -70,7 +79,7 @@ namespace Hunt_Showdown_Challenges
         /// </summary>
         private async void btnNewChallenge_Clicked(object sender, EventArgs e)
         {
-            if (Data.Logic.Challenge.Challenges == null) { return; }
+            if (Data.Logic.Challenge.Challenges == null || !viewModel.RemainingChallenges.Any()) { return; }
             var id = Random.Shared.Next(0, viewModel.RemainingChallenges.Count - 1);
             var newChallenge = viewModel.RemainingChallenges[id];
             viewModel.RemainingChallenges.Remove(newChallenge);
@@ -79,9 +88,33 @@ namespace Hunt_Showdown_Challenges
             await Data.Logic.Challenge.ResetChallengeFile();
             foreach (var challenge in viewModel.SelectedChallenges)
             {
-                string playerName = this.ChooseRandomPlayer();
-                challenge.Title = challenge.OriginalTitle.Replace("{Player}", playerName);
-                challenge.Description = challenge.OriginalDescription.Replace("{Player}", playerName);
+                // REPLACE {Player} with a random player name
+                if (challenge.OriginalTitle.Contains("{Player}", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    string playerName = this.ChooseRandomPlayer();
+                    challenge.Title = challenge.OriginalTitle.Replace("{Player}", playerName);
+                    challenge.Description = challenge.OriginalDescription.Replace("{Player}", playerName);
+                }
+                // REPLACE {Player} with a random player name
+
+                // REPLACE {Letter_Weapons} with a random Letter from the Letters_Weapons List
+                if (challenge.OriginalTitle.Contains("{Letter_Weapons}", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    string selectedLetter = Letters_Weapons[Random.Shared.Next(0, Letters_Weapons.Count - 1)];
+                    challenge.Title = challenge.OriginalTitle.Replace("{Letter_Weapons}", selectedLetter);
+                    challenge.Description = challenge.OriginalDescription.Replace("{Letter_Weapons}", selectedLetter);
+                }
+                // REPLACE {Letter_Weapons} with a random Letter from the Letters_Weapons List
+                // REPLACE {Letter_Consumables} with a random Letter from the Letters_Consumables List
+                else if (challenge.OriginalTitle.Contains("{Letter_Consumables}", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    string selectedLetter = Letters_Consumables[Random.Shared.Next(0, Letters_Consumables.Count - 1)];
+                    challenge.Title = challenge.OriginalTitle.Replace("{Letter_Consumables}", selectedLetter);
+                    challenge.Description = challenge.OriginalDescription.Replace("{Letter_Consumables}", selectedLetter);
+                }
+                // REPLACE {Letter_Consumables} with a random Letter from the Letters_Consumables List
+
+
                 await Data.Logic.Challenge.UpdateChallengeFile(challenge, viewModel.WriteDescriptionToFile); //Update the Challenge File
             }
         }
